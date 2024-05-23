@@ -49,3 +49,4 @@ const checkCondtion = (age) => {
 
 let result = ageArray.find(checkAge);
 console.log(checkAge);
+// i did nothin today, yet i want to keep the green block. :)
