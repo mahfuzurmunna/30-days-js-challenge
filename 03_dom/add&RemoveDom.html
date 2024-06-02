@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add & Remove | DOM</title>
+  </head>
+  <body
+    style="
+      background-color: rgb(47, 48, 50);
+      color: chocolate;
+      font-family: 'Courier New', Courier, monospace;
+    "
+  >
+    <ul class="language">
+      <li>Javascript</li>
+    </ul>
+  </body>
+
+  <script>
+    function addLang(langName) {
+      const liElemnt = document.createElement("li");
+      liElemnt.innerHTML = `${langName}`;
+      document.querySelector(".language").appendChild(liElemnt);
+    }
+    addLang("Python");
+    addLang("Typescript");
+
+    function addOptimizedLang(langName) {
+      const liElement = document.createElement("li");
+      const addText = document.createTextNode(langName);
+      liElement.appendChild(addText);
+      document.querySelector(".language").appendChild(liElement);
+    }
+    addLang("Java");
+    addLang("Ruby");
+
+    //Edit
+    const secondLi = document.querySelector("li:nth-child(5)");
+    console.log(secondLi);
+    const newLang = document.createElement("li");
+    newLang.textContent = "C++";
+    secondLi.replaceWith(newLang);
+
+    //edit
+    const firstLang = document.querySelector("li:first-child");
+    firstLang.outerHTML = "<li>Tailwind</li>";
+
+    //remove
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove();
+  </script>
+</html>
