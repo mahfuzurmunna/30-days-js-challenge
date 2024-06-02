@@ -2,8 +2,9 @@
   width: 575px;
   height: 825px;
 
-  background-color: #797978;
+  background-color: #f0f0d0;
   padding-left: 30px;
+  margin: 0 auto;
 }
 #height,
 #weight {
