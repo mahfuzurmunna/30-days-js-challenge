@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Practice</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./twoScript.js" />
+  </head>
+  <body>
+    <h2 id="title" class="heading">Dom Learning with Coffee</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque modi,
+      saepe nobis at reiciendis dicta.
+    </p>
+  </body>
+  <script>
+    const div = document.createElement("div");
+    console.log(div);
+    div.className = "container";
+    div.id = Math.round(Math.random() * 10 + 1);
+    console.log(div.id);
+    div.setAttribute("title", "generated title");
+    div.style.backgroundColor = "green";
+    div.style.padding = "15px";
+    // div.innerText = "Main Container";
+    const addText = document.createTextNode("Main-Container");
+    div.appendChild(addText);
+
+    document.body.appendChild(div);
+
+    //for a little challenge make it a function
+  </script>
+</html>
