@@ -1,25 +1,25 @@
-const buttons = document.querySelectorAll(".button");
-
-// console.log(buttons);
-
 const body = document.querySelector("body");
 
-buttons.forEach((btn) => {
-  console.log(btn);
-  btn.addEventListener("click", (event) => {
-    console.log(event);
-    console.log(event.target);
-    if (event.target.id === "grey") {
-      body.style.backgroundColor = event.target.id;
+const buttons = document.querySelectorAll(".button");
+const para = document.querySelector(".para");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    if (e.target.id === "grey") {
+      body.style.backgroundColor = e.target.id;
+      para.style.color = "white";
     }
-    if (event.target.id === "white") {
-      body.style.backgroundColor = event.target.id;
+    if (e.target.id === "white") {
+      body.style.backgroundColor = e.target.id;
+      para.style.color = "darkslategrey";
     }
-    if (event.target.id === "blue") {
-      body.style.backgroundColor = event.target.id;
+    if (e.target.id === "blue") {
+      body.style.backgroundColor = e.target.id;
+      para.style.color = "white";
     }
-    if (event.target.id === "yellow") {
-      body.style.backgroundColor = event.target.id;
+    if (e.target.id === "yellow") {
+      body.style.backgroundColor = e.target.id;
+      para.style.color = "darkslategrey";
     }
   });
 });
