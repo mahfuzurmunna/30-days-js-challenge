@@ -4,7 +4,7 @@ html {
 
 body {
   margin: 0 auto;
-  background-color: #212121;
+  background-color: cornflowerblue !important;
 }
 
 .lastResult {
@@ -30,7 +30,7 @@ button {
 }
 
 #subt {
-  background-color: #161616;
+  background-color: #b34343;
   color: #ffffff;
   width: 200px;
   height: 50px;
@@ -38,19 +38,22 @@ button {
   font-size: 20px;
   border-style: none;
   margin-top: 50px;
+  cursor: pointer;
   /* margin-left: 75px; */
 }
 
 #guessField {
-  color: #000;
+  color: #1d2030;
   width: 250px;
   height: 50px;
   font-size: 30px;
   border-style: none;
   margin-top: 25px;
+  outline: none;
 
   /* margin-left: 50px; */
-  border: 5px solid #6c6d6d;
+  border: 3px solid #bbbbbb;
+  border-radius: 5px;
   text-align: center;
 }
 
@@ -62,24 +65,29 @@ button {
 }
 
 .guesses {
-  background-color: #7a7a7a;
+  background-color: #1e59a7;
+  border-radius: 5px;
 }
 
 #wrapper {
   box-sizing: border-box;
   text-align: center;
   width: 450px;
-  height: 550px;
-  background-color: #474747;
+  height: 600px;
+  background-color: #222d4e;
   color: #fff;
   font-size: 25px;
+  margin: 3rem auto;
+  border-radius: 20px;
 }
 
 h1 {
-  background-color: #161616;
-
+  background-color: #1d1d29;
+  padding: 10px;
   color: #fff;
   text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 p {
