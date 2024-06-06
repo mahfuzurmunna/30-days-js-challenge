@@ -24,6 +24,7 @@ LinkedList.prototype.insertAtEnd = function (data) {
     this.head = newNode;
     return;
   }
+  let last = this.head;
   while (last.next) {
     last = last.next;
   }
@@ -67,6 +68,7 @@ LinkedList.prototype.deleteLastNode = function () {
   secondLast.next = null;
 };
 
+//delete node by key
 LinkedList.prototype.deleteByKey = function (key) {
   //if list is empty
   if (!this.head) {
@@ -91,3 +93,53 @@ LinkedList.prototype.deleteByKey = function (key) {
 
   console.log("No node found with key:", key);
 };
+
+//search operation
+
+LinkedList.prototype.search = function (key) {
+  let currentValue = this.head;
+  while (currentValue) {
+    if (current.data === key) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+//traversal
+LinkedList.prototype.printList = function () {
+  let currentValue = this.head;
+  let listValues = [];
+
+  while (current) {
+    listValues.push(currentValue.data); //add data to list
+    currentValue = current.next; //move to next node
+  }
+
+  console.log(listValues.join(" -> "));
+};
+
+//reverse a linked lit
+LinkedList.prototype.reverse = function () {
+  let current = this.head;
+  let prev = null;
+  let next = null;
+  while (current) {
+    next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
+
+  this.head = prev;
+};
+
+const node1 = new Node(4);
+const node2 = new Node(5);
+const node3 = new Node(8);
+
+node1.next = node2;
+node2.next = node3;
+
+console.log(Node);
