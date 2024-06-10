@@ -28,4 +28,25 @@ class binarySearchTree {
       }
     }
   }
+
+  deleteNode(key) {
+    this.root = this.deleteNode(this.root, key);
+  }
+
+  deleteNode(node, key) {
+    //node => root
+    if (node == null) {
+      return null;
+    }
+
+    if (key < node.key) {
+      node.left = this.deleteNode(node.left, key);
+    } else if (key > node.key) {
+      node.right = this.deleteNode(node.right, key);
+    } else {
+      if (node.left === null && node.right === null) {
+        return null;
+      }
+    }
+  }
 }

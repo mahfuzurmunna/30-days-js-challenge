@@ -9,17 +9,24 @@ class LinkedList {
   constructor() {
     this.head = null;
   }
-
-  insertMiddle(data) {
-    let newNode = new Node(data);
-
-    if (!this.head) {
-      this.head = newNode;
-    } else {
-      let slow = this.head;
-      let fast = this.head;
-
-      while (fast && fast.next && fast.next.next) {}
-    }
-  }
 }
+
+//insert at the start
+LinkedList.prototype.inserAtBegining = function (data) {
+  const newNode = new Node(data);
+  this.head = newNode;
+};
+
+//insert at the end
+LinkedList.prototype.inersertAtEnd = function (data) {
+  const newNode = new Node(data);
+  if (!this.head) {
+    this.head = newNode;
+    return;
+  }
+  let last = this.head;
+  while (last.next) {
+    last = last.next;
+  }
+  last.next = newNode;
+};
