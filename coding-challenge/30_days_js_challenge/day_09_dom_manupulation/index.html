@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulate</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <header>
+        <div class="logo">
+          <h3 id="header">DOM Practice</h3>
+        </div>
+        <nav>
+          <ul class="list" id="ul">
+            <li class="li">Home</li>
+            <li class="li">Documentation</li>
+            <li class="li">Notes</li>
+          </ul>
+          <button>Log In</button>
+        </nav>
+      </header>
+      <img
+        id="myImage"
+        src="https://www.freepik.com/free-photo/side-shot-code-editor-using-react-js_131907798.htm#fromView=search&page=1&position=2&uuid=cf0ed190-c722-4fdf-802f-ff4c101a6cc6.jpg"
+        alt="Old Image"
+      />
+      <button id="changeImageBtn">Change Image</button>
+    </div>
+    <script>
+      // Changing the header text
+      document.getElementById("header").innerText = "Manipulate DOM";
+
+      // Changing li colors using class
+      let temp = document.getElementsByClassName("li");
+      Array.from(temp).forEach((li) => (li.style.color = "orange"));
+
+      // Creating new Div using createElement
+      const newDiv = document.createElement("div");
+
+      // Adding text to the new div
+      const addText = document.createTextNode("Welcome to DOM Manipulation");
+      newDiv.append(addText);
+
+      // Creating and adding a button to the new div
+      const addBtn = document.createElement("button");
+      addBtn.innerText = "Change P text";
+      addBtn.addEventListener("click", () => {
+        newParagraph.innerText = "New paragraph has new text";
+        newParagraph.setAttribute("class", "newClass");
+      });
+      addBtn.addEventListener("mouseover", () => {
+        newParagraph.style.color = "brown";
+      });
+      newDiv.append(addBtn);
+      const newParagraph = document.createElement("p");
+      newParagraph.style.fontSize = "20px";
+      newParagraph.textContent = "This is a new paragraph inside the new div.";
+      newDiv.appendChild(newParagraph);
+
+      // Appending the new div to the container
+      document.getElementById("container").appendChild(newDiv);
+
+      // Styling the new div
+      newDiv.style.fontSize = "42px";
+      newDiv.style.textAlign = "center";
+      newDiv.style.margin = "50px";
+
+      // Creating and appending a new list item
+      const newLi = document.createElement("li");
+      const textAdd = document.createTextNode("Contact");
+      newLi.append(textAdd);
+      const ul = document.getElementById("ul");
+      ul.appendChild(newLi);
+
+      // Removing the last list item
+      ul.removeChild(ul.lastChild);
+
+      // Removing the 'list' class from ul
+      ul.classList.remove("list");
+
+      // Adding 'btn' class to the first button
+      const allBtn = document.querySelector("button");
+      allBtn.classList.add("btn");
+
+      // Adding event listeners to the first button
+      const firstBtn = document.getElementsByClassName("btn")[0];
+      firstBtn.addEventListener("click", (e) => {
+        console.log("clicked");
+      });
+
+      firstBtn.addEventListener("mouseover", (e) => {
+        firstBtn.style.borderColor = "white";
+        console.log(e);
+      });
+
+      const myImg = document.getElementById("myImage");
+      const btnElement = document.getElementById("changeImageBtn");
+      btnElement.addEventListener("click", () => {
+        myImg.remove();
+      });
+    </script>
+  </body>
+</html>
