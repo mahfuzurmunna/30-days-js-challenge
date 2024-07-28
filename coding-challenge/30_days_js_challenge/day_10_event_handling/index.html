@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulate</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <header>
+        <div class="logo">
+          <h3 id="header">Event Handler</h3>
+        </div>
+        <nav>
+          <ul class="list" id="ul">
+            <li class="li">Home</li>
+            <li class="li">Documentation</li>
+            <li class="li">Notes</li>
+          </ul>
+          <button>Log In</button>
+        </nav>
+      </header>
+      <!-- hero Section -->
+      <div class="hero">
+        <h2>Day-10 Event Handling</h2>
+        <p id="heroPara">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, est.
+        </p>
+        <button id="heroBTN">Events</button>
+        <img src="./123.jpg" alt="ishan" id="ishan" style="display: none" />
+      </div>
+
+      <div class="box" id="box"></div>
+      <div class="form">
+        <form action="" id="myform">
+          <div class="form-example">
+            <label for="name">Enter Your Name:</label>
+            <input type="text" name="name" id="name" required />
+          </div>
+          <div class="form-example">
+            <label for="email">Enter your email: </label>
+            <input type="email" name="email" id="email" required />
+          </div>
+          <div class="form-example">
+            <input type="submit" value="Subscribe!" id="submit" />
+          </div>
+          <div class="form-example">
+            <label for="cars">Choose a car:</label>
+
+            <select name="cars" id="cars">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+          </div>
+        </form>
+        <p id="display"></p>
+      </div>
+      <ul id="lang">
+        <li>Javascript</li>
+        <li>TypeScript</li>
+        <li>Java</li>
+        <li>Python</li>
+      </ul>
+      <button class="" id="add">Add Lang</button>
+    </div>
+    <script src="./event_handling.js"></script>
+  </body>
+</html>

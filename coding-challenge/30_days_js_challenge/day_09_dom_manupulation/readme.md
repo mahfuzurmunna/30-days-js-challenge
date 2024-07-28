@@ -6,7 +6,7 @@ Write a script that selects an HTML element by its `ID` and changes its `Text Co
 
 ```javascript
 const logo = document.getElementById("logo");
-logo.innerText("Hello Logo!");
+logo.innerText = "Hello Logo!";
 ```
 
 ## 2. Element Creation Script
