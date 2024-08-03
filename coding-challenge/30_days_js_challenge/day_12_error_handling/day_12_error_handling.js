@@ -74,5 +74,63 @@ function validateInput(input) {
   }
 }
 
-validateInput("");
+// validateInput("");
 // validateInput("Valid");
+
+function createRandomPromise() {
+  return new Promise((resolve, reject) => {
+    const randomNumber = Math.random();
+    if (randomNumber > 0.5) {
+      resolve("Promise resolved");
+    } else {
+      reject(new Error("promise rejected"));
+    }
+  });
+}
+
+createRandomPromise()
+  .then((message) => {
+    console.log(message);
+  })
+  .catch((error) => {
+    console.error("Caught an error", error.message);
+  });
+
+async function handleRandomPromise() {
+  try {
+    const message = await createRandomPromise();
+    console.log(message);
+  } catch (error) {
+    console.error("Caught an error -> ", error.message);
+  }
+}
+
+// handleRandomPromise();
+
+fetch("https://invalid.url")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error("fetch error -> ", error.message);
+  });
+
+async function fetchWithTryCatch() {
+  try {
+    const response = await fetch("https://invalid.url");
+    if (!response.ok) {
+      throw new Error("network response was not ok");
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("fetch error:", error.message);
+  }
+}
+fetchWithTryCatch();
