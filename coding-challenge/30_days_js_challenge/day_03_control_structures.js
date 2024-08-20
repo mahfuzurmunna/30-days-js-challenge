@@ -65,7 +65,7 @@ number % 2 === 0 ? console.log("Even") : console.log("Odd");
 let minYear = 1000;
 let maxYear = 5000;
 
-let randomYear = Math.floor(Math.random() * (minYear + maxYear) - 1) + min;
+let randomYear = Math.floor(Math.random() * (minYear + maxYear) - 1) + minYear;
 
 console.log(randomYear);
 
