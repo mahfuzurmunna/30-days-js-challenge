@@ -73,14 +73,36 @@ function isLeap(year) {
   if (year % 4 === 0) {
     if (year % 100 === 0) {
       if (year % 400 === 0) {
-        console.log("its leap year");
+        console.log("it is a leap year");
       } else {
-        console.log("not a leap year");
+        console.log("it is not a leap year");
       }
+    } else {
+      console.log("it is not a leap year");
     }
   } else {
-    console.log("not a leap year");
+    console.log("it is not a leap year");
   }
 }
-
+function largest(a, b, c) {
+  if (a > b) {
+    if (a > c && b > c) {
+      console.log("1st: a , 2nd: b , 3rd: c");
+    } else if (a > c && c > b) {
+      console.log("1st: a , 2nd: c , 3rd: b");
+    } else {
+      console.log("1st: c , 2nd: a, 3rd: b");
+    }
+  } else if (b > c) {
+    if (a > c) {
+      console.log("1st: b , 2nd: a , 3rd: c");
+    } else {
+      console.log("1st: b , 2nd: c , 3rd: a");
+    }
+  } else {
+    console.log("1st: c , 2nd: b, 3rd: a");
+  }
+}
 isLeap(randomYear);
+
+largest(6, 8, 6);
