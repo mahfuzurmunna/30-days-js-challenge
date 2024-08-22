@@ -49,11 +49,15 @@ newArr.forEach((elm) => console.log(elm));
 Create a script that demonstrate the creation and manipulation of a two dimensional array
 
 ```javascript
-let twoDArray = [
-  [3, 1, 5],
-  [4, 3, 6],
-  [6, 8, 2],
-];
+let rows = 3;
+let cols = 3;
+let matrix = [];
+for (let i = 0; i < rows; i++) {
+  matrix[i] = [];
 
-console.log(mArr[1][0]);
+  for (let j = 0; j < cols; j++) {
+    matrix[i][j] = i * cols + j + 1;
+  }
+}
+console.log(matrix[1][2]);
 ```
