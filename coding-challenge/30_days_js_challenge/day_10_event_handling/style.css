@@ -3,8 +3,12 @@
   margin: 0;
   padding: 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  background-color: rgb(29, 27, 36);
+
   color: aliceblue;
+}
+
+body {
+  background-color: rgb(29, 27, 36);
 }
 
 .container {
@@ -44,109 +48,67 @@ nav button {
   font-size: 16px;
   cursor: pointer;
 }
-.hero {
-  text-align: center;
-}
-.hero h2 {
-  font-size: 48px;
-  color: chocolate;
 
-  margin-top: 30px;
-}
-
-.hero p {
-  font-size: 18px;
-}
-
-/* Basic button styling */
-.hero button {
-  /* Green background */
-  border: 2px solid #4caf50; /* Remove borders */
-  color: white; /* White text */
-  padding: 15px 32px; /* Some padding */
-  text-align: center; /* Center the text */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Make the button inline-block */
-  font-size: 16px; /* Increase font size */
-  margin: 20px 2px; /* Some margin */
-  cursor: pointer; /* Pointer/hand icon */
-  border-radius: 5px; /* Rounded corners */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
-}
-
-/* Add a hover effect */
-.hero button:hover {
-  background-color: #45a049; /* Darker green */
-}
-
-/* Add a focus effect */
-.hero button:focus {
-  outline: none; /* Remove the default outline */
-  box-shadow: 0 0 10px #719ece; /* Add a blue shadow */
-}
-.box {
-  padding: 100px;
-  background-color: chocolate;
-  width: 100px;
-
-  margin: 20px auto;
-  border-radius: 10px;
-}
-
-/* General form styling */
-.form {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-}
-
-/* Form example div styling */
-.form-example {
-  margin-bottom: 15px;
-}
-
-/* Label styling */
-.form-example label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Input field styling */
-.form-example input[type="text"],
-.form-example input[type="email"] {
-  width: 100%;
+.main {
+  margin-top: 20px;
   padding: 10px;
+  border-radius: 20px;
+  background-color: aquamarine;
+  color: brown;
+}
+
+img {
+  width: 400px;
+  border-radius: 60px;
+  display: block;
+  margin: 10px;
+}
+
+#bg {
+  background-color: rgb(214, 196, 30);
+  padding: 50px;
+}
+
+#bg h4 {
+  color: sienna;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 16px;
+  color: black;
 }
-
-/* Submit button styling */
-.form-example input[type="submit"] {
+input[type="submit"] {
   width: 100%;
-  padding: 10px;
   background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
   border: none;
   border-radius: 4px;
-  color: white;
-  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-/* Submit button hover effect */
-.form-example input[type="submit"]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-#lang {
-  padding: 10px;
-  background-color: #45a049;
+form {
+  margin: 50px;
+  background-color: slategrey;
+  padding: 50px;
+}
+
+#forBtn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  outline: auto;
+  background-color: royalblue;
+  color: white;
 }

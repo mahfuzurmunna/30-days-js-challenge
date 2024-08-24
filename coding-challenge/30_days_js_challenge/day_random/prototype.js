@@ -1,12 +1,6 @@
-// const personMethods = {
-//   eat(name) {
-//     console.log(`${this.name} is eating`);
-//   },
+const container = document.querySelector(".container");
 
-//   sleep(name) {
-//     console.log(`${this.name} is sleeping`);
-//   },
-// };
+container.style.backgroundColor = "blue";
 
 function Person(name, age) {
   this.name = name;
@@ -14,48 +8,16 @@ function Person(name, age) {
 }
 
 Person.prototype = {
-  eat(name) {
+  eat() {
     console.log(`${this.name} is eating`);
   },
 
-  sleep(name) {
-    console.log(`${this.name} is sleeping`);
+  play() {
+    console.log(`${this.name} is playing`);
   },
 };
 
-const sakib = Person("Sakib", 55);
+const newPerson = new Person("lul", 1000);
+console.log(newPerson);
 
-// sakib.eat();
-const munna = new Person("Munna", 27);
-munna.sleep();
-// console.log(sakib);
-
-// console.log(player.age);
-
-function test() {}
-
-console.dir(test);
-
-class Human {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-
-  eat() {
-    console.log(`${this.name} is eating`);
-  }
-
-  sleep() {
-    console.log(`${this.name} is sleeping`);
-  }
-}
-
-const mahfuz = new Human("mahfuz", 30);
-
-mahfuz.sleep();
-
-let persons = new Array();
-
-persons.push("ponnya");
-console.log(persons);
+newPerson.eat();
