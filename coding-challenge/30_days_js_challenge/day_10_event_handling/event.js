@@ -72,3 +72,35 @@ selectOption.addEventListener("change", (e) => {
   console.log(selectOption.value);
   customParagraph.innerText = selectOption.value;
 });
+
+// Get the unordered list and the add button
+const unorderedList = document.getElementById("unordered");
+const addButton = document.getElementById("addBtn");
+
+// Function to add a new language to the list
+function addNewLanguage() {
+  // Create a new list item
+  const newListItem = document.createElement("li");
+
+  // Prompt the user to enter a language
+  const language = prompt("Enter a new language:");
+
+  if (language) {
+    // Set the text content of the list item to the new language
+    newListItem.textContent = language;
+
+    // Append the new list item to the unordered list
+    unorderedList.insertBefore(newListItem, addButton);
+  }
+}
+
+// Add an event listener to the parent unordered list
+unorderedList.addEventListener("click", function (event) {
+  // Check if the clicked element is a list item
+  if (event.target.tagName === "LI") {
+    alert(`You clicked on: ${event.target.textContent}`);
+  }
+});
+
+// Add an event listener to the "Add Lang" button
+addButton.addEventListener("click", addNewLanguage);
