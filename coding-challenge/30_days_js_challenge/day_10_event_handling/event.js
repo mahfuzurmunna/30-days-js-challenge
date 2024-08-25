@@ -1,106 +1,100 @@
-const mainBtn = document.querySelector(".main");
-const para = document.querySelector(".paragraph");
-const images = document.querySelector("img");
+// Add a click event listener to a button that changes the text content of a paragraph.
+const fPara = document.getElementById("change");
 
-// change paragraph text using click event
-mainBtn.addEventListener("click", (e) => {
-  para.textContent = "By clicking the text have been changed";
+const headBtn = document.getElementById("headBtn");
+
+//  Add a double-click event listener to an image that toggles its visibility
+const dbImg = document.getElementById("dbImg");
+
+dbImg.addEventListener("dblclick", function () {
+  dbImg.style.display = "none";
 });
 
-// change display of an image using dbclick event
-images.addEventListener("dblclick", () => {
-  images.style.display = "none";
+headBtn.addEventListener("click", () => {
+  fPara.innerText =
+    "This text has been changed by clicking the button. Dont worry it will get reset after it reloads";
 });
 
-const yellowBg = document.getElementById("bg");
+// mouseover event listener to an element that changes its background color.
+const colorBg = document.getElementById("bg");
 
-function randomColor() {
-  let letters = "0123456789ABCDEF";
+function getRandomColor() {
+  let hexLetters = "ABCDEF1234567890";
+
   let randomColor = "#";
-
   for (let i = 0; i < 6; i++) {
-    randomColor += letters[Math.floor(Math.random() * 16)];
+    randomColor += hexLetters[Math.floor(Math.random() * 16)];
   }
   return randomColor;
 }
 
-//changing background color randomly using mouseover event
-yellowBg.addEventListener("mouseover", () => {
-  let random = randomColor();
-  yellowBg.style.backgroundColor = random;
+colorBg.addEventListener("mouseover", function () {
+  let colorVariable = getRandomColor();
+  colorBg.style.backgroundColor = colorVariable;
 });
 
-let fNameField = document.getElementById("myName");
-
-const customParagraph = document.createElement("p");
-customParagraph.style.marginLeft = "100px";
-fNameField.addEventListener("keyup", (event) => {
-  let text = event.key;
-  customParagraph.textContent = text;
+colorBg.addEventListener("mouseout", function () {
+  colorBg.style.backgroundColor = "rgb(214, 196, 30)";
 });
 
-const formBg = document.getElementById("form");
-
-document.body.appendChild(customParagraph);
-
-formBg.addEventListener("mouseover", () => {
-  formBg.style.backgroundColor = "brown";
-});
-
-formBg.addEventListener("mouseout", () => {
-  formBg.style.backgroundColor = "slategrey";
-});
-
+const formParent = document.getElementById("form-container");
 const form = document.getElementById("form");
-const submitBtn = document.getElementById("forBtn");
+const formBtn = document.getElementById("formBtn");
 
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+// formParent.addEventListener("click", addEvent);
+// form.addEventListener("click", addEvent, true);
 
+// addevent function
+function addEvent(event) {
+  event.preventDefault();
   const formData = new FormData(form);
-
+  // console.dir(formData);
   formData.forEach((value, key) => {
     console.log(`${key}: ${value}`);
   });
-});
-
-const selectOption = document.getElementById("country");
-
-selectOption.addEventListener("change", (e) => {
-  // console.dir(e);
-  const options = selectOption.querySelectorAll("option");
-  console.log(selectOption.value);
-  customParagraph.innerText = selectOption.value;
-});
-
-// Get the unordered list and the add button
-const unorderedList = document.getElementById("unordered");
-const addButton = document.getElementById("addBtn");
-
-// Function to add a new language to the list
-function addNewLanguage() {
-  // Create a new list item
-  const newListItem = document.createElement("li");
-
-  // Prompt the user to enter a language
-  const language = prompt("Enter a new language:");
-
-  if (language) {
-    // Set the text content of the list item to the new language
-    newListItem.textContent = language;
-
-    // Append the new list item to the unordered list
-    unorderedList.insertBefore(newListItem, addButton);
-  }
 }
 
-// Add an event listener to the parent unordered list
-unorderedList.addEventListener("click", function (event) {
-  // Check if the clicked element is a list item
-  if (event.target.tagName === "LI") {
-    alert(`You clicked on: ${event.target.textContent}`);
-  }
+// Task 5: Add a keydown event listener to an input field that logs the key pressed to the console.
+
+const fName = document.getElementById("fName");
+const valuePara = document.getElementById("inputValue");
+
+// Task 6: Add a keyup event listener to an input field that displays the current value in a paragraph.
+fName.addEventListener("keyup", function (e) {
+  console.log(fName);
+  valuePara.textContent = fName.value;
 });
 
-// Add an event listener to the "Add Lang" button
-addButton.addEventListener("click", addNewLanguage);
+// Task 7: Add a submit event listener to a form that prevents the default submission and logs the form data to the console.
+formBtn.addEventListener("click", addEvent);
+
+// Task 8: Add a change event listener to a select dropdown that displays the selected value in a paragraph.
+
+const dropDown = document.getElementById("country");
+
+dropDown.addEventListener("change", function (e) {
+  const valueOfOption = document.querySelectorAll("option");
+  const selectedValue = dropDown.value;
+  valuePara.textContent = `${selectedValue}`;
+});
+
+// Task 9: Add a click event listener to a list that logs the text content of the clicked list item using event delegation.
+const ulParent = document.getElementById("ulParent");
+const uList = document.getElementById("unordered");
+
+ulParent.addEventListener("click", (event) => {
+  console.dir(event.target.innerText);
+});
+
+// Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
+const addBtn = document.getElementById("addBtn");
+addBtn.addEventListener("click", function () {
+  const newLi = document.createElement("li");
+  const language = prompt("Enter your language");
+
+  if (language) {
+    newLi.innerText = language;
+  }
+
+  uList.insertBefore(newLi, addBtn);
+});

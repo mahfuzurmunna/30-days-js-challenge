@@ -9,54 +9,78 @@
   <body>
     <div class="container">
       <h1>This is heading</h1>
-      <p class="paragraph">
+      <p class="paragraph" id="change">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sed sit
         nemo architecto ipsum praesentium laboriosam ut pariatur laborum ab?
       </p>
-      <button class="main">Click me</button>
-      <img src="./double.jpg" alt="" />
+      <button id="headBtn" class="main">Click me</button>
+      <img src="./double.jpg" alt="" id="dbImg" />
     </div>
 
     <div id="bg">
       <h4>this is meant to change background color</h4>
     </div>
 
-    <ul class="container" id="unordered">
-      List of Languages
-      <li>Javascript</li>
-      <li>Python</li>
-      <li>Ruby</li>
-      <li>Java</li>
-      <button id="addBtn" style="color: black; padding: 10px; margin-top: 10px">
-        Add Lang
-      </button>
-    </ul>
+    <div
+      class="container"
+      style="border: 2px solid blue; padding: 15px; border-radius: 10px"
+      id="ulParent"
+    >
+      <ul
+        id="unordered"
+        style="border: 2px solid green; padding: 20px; border-radius: 10px"
+      >
+        <h3 style="padding: 8px">List of Languages</h3>
+        <li>Javascript</li>
+        <li>Python</li>
+        <li>Ruby</li>
+        <li>Java</li>
+        <button
+          id="addBtn"
+          style="color: black; padding: 10px; margin-top: 10px"
+        >
+          Add Lang
+        </button>
+      </ul>
+    </div>
 
-    <form action="" id="form">
-      <label for="fname">FirstName</label>
-      <input
-        type="text"
-        id="myName"
-        name="firstname"
-        placeholder="your name.."
-      />
+    <div class="container" id="form-container">
+      <p>
+        Value of form input:
+        <span id="inputValue"></span>
+      </p>
+      <form action="" id="form">
+        <label for="fname">FirstName</label>
+        <input
+          type="text"
+          id="fName"
+          name="firstname"
+          placeholder="your name.."
+        />
 
-      <label for="lname">Lastname</label>
-      <input
-        type="text"
-        id="lname"
-        name="lastname"
-        placeholder="your last name.."
-      />
-      <label for="country">Country</label>
-      <select name="country" id="country">
-        <option value="bangladesh">Bangladesh</option>
-        <option value="india">India</option>
-        <option value="pakistan">Pakistan</option>
-      </select>
+        <label for="lname">Lastname</label>
+        <input
+          type="text"
+          id="lname"
+          name="lastname"
+          placeholder="your last name.."
+        />
+        <label for="country">Country</label>
+        <select name="country" id="country">
+          <option value="bangladesh">Bangladesh</option>
+          <option value="india">India</option>
+          <option value="pakistan">Pakistan</option>
+        </select>
 
-      <button type="submit" id="forBtn">Submit</button>
-    </form>
+        <button
+          type="submit"
+          style="padding: 10px; color: black; margin-top: 15px"
+          id="formBtn"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
 
     <script src="./event.js"></script>
   </body>
