@@ -163,11 +163,123 @@ someId = 20;
 let anotherId;
 anotherId = "1kj1b2jkf";
 anotherId = 5;
-//pitfall of union types
+//type guards
 function swapIdType(id) {
     //can only use props and methods common to
     //both number and strings
-    parseInt('id');
-    return id;
+    if (typeof id === "string") {
+        return parseInt(id);
+    }
+    else {
+        return id.toString();
+    }
 }
+const idOne = swapIdType(1);
+const idTwo = swapIdType("2");
+console.log(idOne, ",", idTwo);
+let facebookUser = {
+    type: "user",
+    userName: "mun",
+    id: 24,
+};
+let twitterUser = {
+    type: "person",
+    userName: "mun",
+    id: 24,
+};
+function checkThem(value) {
+    if (value.type === "user") {
+        console.log(value.userName);
+    }
+    else {
+        console.log(value.userName);
+    }
+}
+checkThem(facebookUser);
+const someQuantity = { quantity: 50 };
+function printQuantity(item) {
+    console.log(`the quantity of the item is  ${item.quantity}`);
+}
+const fruit = {
+    name: "mango",
+    quantity: 50,
+};
+const vehicle = {
+    type: "car",
+    quantity: 3,
+};
+const anotherPerson = {
+    name: "munna",
+    age: 30,
+};
+printQuantity(fruit);
+printQuantity(vehicle);
+function addDuoNumber(a, b) {
+    return a + b;
+}
+function squareNumber(num) {
+    return num * num;
+}
+function joinTwoNumbers(numOne, numTwo) {
+    return `${numOne}${numTwo}`;
+}
+let calcs = [];
+calcs.push(addTwoNumber);
+// calcs.push(joinTwoNumbers);
+// it depends on which type the function is returning, argmnt does not.
+calcs.push(squareNumber);
+const shapeOne = {
+    name: "square",
+    calcArea(l, w) {
+        return l * w;
+    },
+};
+const shapeTwo = {
+    name: "circle",
+    calcArea(radius) {
+        return (Math.PI * radius) ^ 2;
+    },
+};
+console.log(shapeOne.calcArea(5, 9));
+console.log(shapeTwo.calcArea(10, 10));
+const randomUser = {
+    id: 1,
+    format() {
+        return `This user has an id of ${this.id}`;
+    },
+};
+const bill = {
+    id: 2,
+    amount: 50,
+    server: "munna",
+    format() {
+        return `User ${this.server} has Bill with id ${this.id} has $ ${this.amount} to pay`;
+    },
+};
+function printFormatted(val) {
+    console.log(val.format());
+}
+function printBill(bill) {
+    console.log("server", bill.server);
+    console.log(bill.format());
+}
+printFormatted(randomUser);
+printBill(bill);
+const alienOne = {
+    id: 1,
+    firstName: 'jadu'
+};
+const alienTwo = {
+    id: '2',
+    firstName: 'ninja',
+    email: 'gmail@com'
+};
+const personThree = {
+    id: '2',
+    firstName: 'peach@gmail.com'
+};
+function printAlien(user) {
+    console.log(user.id, user.email, user.firstName);
+}
+// printAlien(alienOne);
 //# sourceMappingURL=hello.js.map
