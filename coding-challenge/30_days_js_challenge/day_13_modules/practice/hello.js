@@ -1,0 +1,14 @@
+var age = 30;
+var firstName = 'Mario';
+var isFictional = true;
+age = 31;
+firstName = 'Munna';
+isFictional = false;
+var planet = 'Earth';
+var moons = 1;
+var isLarge = true;
+var something;
+var lol;
+something = null;
+lol = undefined;
+console.log(typeof something);
