@@ -1,6 +1,6 @@
-### Day-15 Closures
+## Day-15 Closures
 
-## 1. Basic Closure Script:
+### 1. Basic Closure Script:
 
 Write a script that demonstrates a basic closure with a function returning another function that accesses the outer function's variable.
 
@@ -14,7 +14,7 @@ function basic() {
 }
 ```
 
-## 2. Counter Closure Script:
+### 2. Counter Closure Script:
 
 Create a script that uses a closure to maintain a private counter with increment and get functions.
 
@@ -32,7 +32,7 @@ const increment = temporary();
 console.log(increment());
 ```
 
-## 3. Unique ID Generator Script:
+### 3. Unique ID Generator Script:
 
 Write a script that generates unique IDs using a closure to keep track of the last generated ID.
 
@@ -58,7 +58,7 @@ console.log(generateId()); // Generates and prints another unique ID
 console.log(generateId()); // Generates and prints another unique ID
 ```
 
-## 4. Loop Closure Script:
+### 4. Loop Closure Script:
 
 Create a script that demonstrates closures in loops to ensure functions log the correct index.
 
@@ -75,26 +75,26 @@ function arrayOfFunction(length) {
 }
 ```
 
-## 4. Memoization Script:
+### 4. Memoization Script:
 
 Write a script that memoizes the results of a function and demonstrates it with a factorial calculation.
 
 ```javascript
-function memoizedFactorial () {
-    const memo = {};
+function memoizedFactorial() {
+  const memo = {};
 
-    function factorial (num) {
-        for(num in memo) {
-            return memo[num];
-        }
-        let result = 1;
-        for(let i = num; i>1; i--) {
-            result *= i;
-        }
-        memo[num] = result;
-        return result;
+  function factorial(num) {
+    for (num in memo) {
+      return memo[num];
     }
-    return {factorial};
+    let result = 1;
+    for (let i = num; i > 1; i--) {
+      result *= i;
+    }
+    memo[num] = result;
+    return result;
+  }
+  return { factorial };
 }
 
 const factorial = memoizedFactorial();
@@ -103,5 +103,3 @@ console.log(factorial(5));
 console.log(factorial(6));
 console.log(factorial(5));
 ```
-
-
