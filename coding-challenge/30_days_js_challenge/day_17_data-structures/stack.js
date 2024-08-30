@@ -17,12 +17,13 @@ class Stack {
     this.stack.push(data);
   }
   remove() {
+    if(this.isEmpty()) return `Stack is empty`;
     this.top--;
     return this.stack.pop();
   }
 
   isEmpty() {
-    if (this.top < 0) return `Stack is empty`;
+    return this.top < 0;
   }
 
   peek() {
@@ -40,16 +41,21 @@ stack.remove();
 // console.log(stack.peek());
 
 const stringStack = new Stack();
+
 function reverseString(string) {
   let stringArr = [];
+
   for (let i = 0; i < string.length; i++) {
     stringStack.add(string[i]);
   }
+  for (let i = 0; i < string.length; i++) {
+    stringArr.push(stringStack.remove());
+  }
 
-//   console.log(stringStack)
-return stringStack;
+  //   console.log(stringStack)
+  return stringArr.join('');
 }
 
-
+console.log(reverseString('munna'))
 
 
