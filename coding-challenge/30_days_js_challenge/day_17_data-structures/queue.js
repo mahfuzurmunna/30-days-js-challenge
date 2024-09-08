@@ -1,40 +1,65 @@
 class Queue {
   constructor(capacity = 100) {
     this.queue = [];
-    this.front = -1;
-    this.rear = -1;
     this.capacity = capacity;
   }
 
   isEmpty() {
-    return this.front < 0;
+    return this.queue.length === 0;
   }
 
   enqueue(data) {
-    if (this.rear === this.capacity) return `Queue is full`;
-    if (this.isEmpty()) {
-      this.front++;
-      this.rear++;
-    }
-    this.rear++;
-    this.queue[this.rear] = data;
+    if(this.queue.length === this.capacity) return `Queue is full`;
+    this.queue.push(data);
   }
 
   dequeue() {
-    if (this.isEmpty()) return `Queue is empty`;
     return this.queue.shift();
   }
+
   peek() {
-    return this.queue[this.front];
+    if(this.isEmpty()) return null;
+    return this.queue[0];
   }
-  printQueue () {
-    return this.queue.join(', ');
+
+  printQueue() {
+    if (!this.isEmpty()) {
+      return this.queue.join(', ')
+    } else {
+      return 'Queue is empty';
+    }
   }
 }
-const quque = new Queue();
 
-// quque.enqueue(10);
-quque.enqueue(20);
-quque.enqueue(30);
-quque.enqueue(50);
-console.log(quque.printQueue())
+const queue = new Queue();
+
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+queue.enqueue(50);
+
+console.log(queue.dequeue()); // 10
+console.log(queue.printQueue()); // 20, 30, 50
+
+// Function to simulate a printer queue
+function simulatePrinterQueue(jobs) {
+  const printerQueue = new Queue();
+
+  // Add all jobs to the printer queue
+  jobs.forEach(job => {
+    console.log(`Adding job: ${job}`);
+    printerQueue.enqueue(job);
+  });
+
+  // Process each job in the printer queue
+  while (!printerQueue.isEmpty()) {
+    const job = printerQueue.dequeue();
+    console.log(`Processing job: ${job}`);
+  }
+
+  console.log("All jobs have been processed.");
+}
+
+// Example usage
+const printJobs = ["Job1", "Job2", "Job3", "Job4"];
+simulatePrinterQueue(printJobs);
