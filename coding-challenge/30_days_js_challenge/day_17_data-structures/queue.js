@@ -1,65 +1,66 @@
+/** 
+------------------------ 
+Activity 3: Queue
+------------------------
+**/
+
 class Queue {
   constructor(capacity = 100) {
     this.queue = [];
     this.capacity = capacity;
+    this.rear = 0;
+    this.front =0;
   }
 
   isEmpty() {
-    return this.queue.length === 0;
+    return this.rear === this.front;
   }
 
-  enqueue(data) {
-    if(this.queue.length === this.capacity) return `Queue is full`;
-    this.queue.push(data);
+  enqueue(value) {
+    if (this.rear === this.capacity) return "Queue is full";
+
+    this.queue[this.rear] = value;
+    this.rear++;
+    return true;
+  }
+
+  getLength () {
+    return this.rear - this.front;
   }
 
   dequeue() {
-    return this.queue.shift();
-  }
-
-  peek() {
-    if(this.isEmpty()) return null;
-    return this.queue[0];
-  }
-
-  printQueue() {
-    if (!this.isEmpty()) {
-      return this.queue.join(', ')
-    } else {
-      return 'Queue is empty';
+    const item = this.queue[this.front];
+    for (let i = this.front; i < this.rear-1; i++) {
+      this.queue[i] = this.queue[i+1];
     }
+    this.rear--;
+    delete this.queue[this.rear];
+    return item;
+  }
+
+  peek () {
+    return this.queue[this.front];
+  }
+
+  display() {
+    const  values = [];
+    for(let i = this.front; i<this.rear; i++) {
+      values.push(queue[i]);
+    }
+
+    return values;
   }
 }
+
 
 const queue = new Queue();
 
-queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-queue.enqueue(50);
+queue.enqueue('a');
+queue.enqueue('b');
+queue.enqueue('c');
 
-console.log(queue.dequeue()); // 10
-console.log(queue.printQueue()); // 20, 30, 50
+// queue.dequeue();
 
-// Function to simulate a printer queue
-function simulatePrinterQueue(jobs) {
-  const printerQueue = new Queue();
+console.log(queue.display());
 
-  // Add all jobs to the printer queue
-  jobs.forEach(job => {
-    console.log(`Adding job: ${job}`);
-    printerQueue.enqueue(job);
-  });
 
-  // Process each job in the printer queue
-  while (!printerQueue.isEmpty()) {
-    const job = printerQueue.dequeue();
-    console.log(`Processing job: ${job}`);
-  }
-
-  console.log("All jobs have been processed.");
-}
-
-// Example usage
-const printJobs = ["Job1", "Job2", "Job3", "Job4"];
-simulatePrinterQueue(printJobs);

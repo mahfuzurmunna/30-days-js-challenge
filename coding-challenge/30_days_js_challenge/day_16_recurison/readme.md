@@ -176,6 +176,4 @@ class BST {
     return Math.max(leftNodes,rightNodes) + 1;
   }
 }
-
-
 ```

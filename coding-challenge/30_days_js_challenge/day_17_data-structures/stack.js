@@ -7,55 +7,39 @@ Activity 2: Stack
 class Stack {
   constructor(capacity = 100) {
     this.stack = [];
-    this.capacity = capacity;
-    this.top = -1;
+    this.capacity = 100;
   }
 
-  add(data) {
-    if (this.top === this.capacity) return `Stack is overloaded`;
-    this.top++;
-    this.stack.push(data);
+  push(value) {
+    if (this.capacity === this.stack.length) return "Stack is full";
+    this.stack.push(value);
   }
-  remove() {
-    if(this.isEmpty()) return `Stack is empty`;
-    this.top--;
+
+  pop() {
     return this.stack.pop();
   }
 
-  isEmpty() {
-    return this.top < 0;
-  }
-
   peek() {
-    return this.stack[this.top];
+    return this.stack[this.stack.length - 1];
   }
 }
 
-const stack = new Stack();
+function reverseStrUsingStack(str) {
+  const newStack = new Stack();
+  let result = '';
+  for (const letter of str) {
+    newStack.push(letter);
 
-stack.add(20);
-stack.add(30);
-stack.add(50);
-stack.add(60);
-stack.remove();
-// console.log(stack.peek());
-
-const stringStack = new Stack();
-
-function reverseString(string) {
-  let stringArr = [];
-
-  for (let i = 0; i < string.length; i++) {
-    stringStack.add(string[i]);
   }
-  for (let i = 0; i < string.length; i++) {
-    stringArr.push(stringStack.remove());
+  for(let i = 0; i<str.length; i++) {
+    result += newStack.pop();
   }
+  // let result = "";
 
-  //   console.log(stringStack)
-  return stringArr.join('');
+  // for (let i = 0; i < newStack.length; i++) {
+  //   result += newStack[i];
+  // }
+  return result;
 }
 
-console.log(reverseString('munna'))
-
-
+console.log(reverseStrUsingStack("munna"));
