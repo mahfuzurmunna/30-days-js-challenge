@@ -9,22 +9,21 @@ Max : O(n^2)
 - it is also a stable sorting
 */
 
-
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
     let j = i;
-    let k = i ;
+    let k = i + 1;
     while (k < arr.length) {
-      if (arr[k] < arr[j]) {
-      j = k;
-      k++;
+      if (arr[j] > arr[k]) {
+        j = k;
+        k++;
       } else {
         k++;
       }
     }
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+    let temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
   }
   return arr;
 }

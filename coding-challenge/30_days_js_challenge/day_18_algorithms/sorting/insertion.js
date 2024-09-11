@@ -10,18 +10,15 @@ Max : O(n^2)
 */
 
 function insertionSort(arr) {
-  for (let i = 1; i < arr.length; i++) {
-    let j = i - 1;
-    let x = arr[i];
-
-    while (j > -1 && arr[j] > x) {
-      arr[j + 1] = arr[j];
-      j--;
+    for(let i = 1; i<arr.length; i++) {
+        let j = i - 1;
+        let x = arr[i];
+        while(j>-1 && a[j] > x) {
+            a[j+1] = a[j];
+            j--;
+        }
+        a[j+1] = x;
     }
-    arr[j + 1] = x;
-  }
-
-  return arr;
 }
 
 let arr = [2,5,1,3,89,12,53,10];
