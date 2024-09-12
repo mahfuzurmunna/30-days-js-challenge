@@ -6,7 +6,8 @@
     <title>Local and Session Storage</title>
   </head>
   <style>
-    input[type=text], select {
+    input[type="text"],
+    select {
       width: 100%;
       padding: 12px 20px;
       margin: 8px 0;
@@ -15,10 +16,19 @@
       border-radius: 4px;
       box-sizing: border-box;
     }
-    
-    input[type=submit] {
+    input[type="email"] {
       width: 100%;
-      background-color: #4CAF50;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4caf50;
       color: white;
       padding: 14px 20px;
       margin: 8px 0;
@@ -26,11 +36,11 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    
-    input[type=submit]:hover {
+
+    input[type="submit"]:hover {
       background-color: #45a049;
     }
-    
+
     div {
       border-radius: 5px;
       background-color: #f2f2f2;
@@ -40,32 +50,52 @@
       margin-right: auto;
       margin-left: auto;
     }
-    </style>
+  </style>
   <body>
-  
     <button onclick="setItem('myKey','Hello, LS')">Set Item</button>
-  <button onclick="getItem('myKey')">Get Item</button>
+    <button onclick="getItem('myKey')">Get Item</button>
 
-  <div>
-    <form action="/action_page.php" id="form">
-      <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your name..">
-  
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-  
-      <label for="country">Country</label>
-      <select id="country" name="country">
-        <option value="australia">Australia</option>
-        <option value="canada">Canada</option>
-        <option value="usa">USA</option>
-      </select>
-    
-      <input type="submit" value="Submit" id="submitBtn">
-    </form>
-  </div>
+    <div>
+      <form action="/action_page.php" id="form">
+        <label for="fname" id="name">First Name</label>
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          required
+          placeholder="Your name.."
+        />
 
+        <label for="lname">Last Name</label>
+        <input
+          type="text"
+          id="lname"
+          name="lastname"
+          required
+          placeholder="Your last name.."
+        />.
 
+        <label for="lname">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your email address"
+        />
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+
+        <input type="submit" value="Submit" id="submitBtn" />
+      </form>
+    </div>
+
+    <div id="savedData">Saved Data</div>
+    <button id="rmvBtn">remove data from ls</button>
 
     <script src="./local_storage.js"></script>
   </body>

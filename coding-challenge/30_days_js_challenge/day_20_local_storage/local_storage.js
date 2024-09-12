@@ -15,17 +15,42 @@ const retrivedObj = JSON.parse(localStorage.getItem("myObj"));
 
 // Task 3: Create a simple form that saves user input (e.g., name and email) to localStorage when submitted. Retrieve and display the saved data on page load.
 const form = document.getElementById("form");
-function addEvent(event) {
-  event.preventDefault();
-  const formData = new FormData(form);
-  // console.dir(formData);
-  formData.forEach((value, key) => {
-    console.log(`${key}: ${value}`);
-    localStorage.setItem(key, value);
-    const retrievedForm = localStorage.getItem(key);
-  });
+const savedDataDiv = document.getElementById("savedData");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("fname").value;
+  const email = document.getElementById("email").value;
+  localStorage.setItem("userData", JSON.stringify({ name, email }));
+  displaySavedData();
+  console.log(localStorage.getItem("userData"));
+});
+
+const getUserData = localStorage.getItem("userData");
+
+function displaySavedData() {
+  const savedData = JSON.parse(localStorage.getItem("userData"));
+  if (savedData) {
+    savedDataDiv.innerHTML = `Name: ${savedData.name} <br> Email: ${savedData.email}`;
+  }
 }
 
-const submitBtn = document.getElementById("submitBtn");
-submitBtn.addEventListener("click", addEvent);
-console.log(retrivedObj);
+const rmvBtn = document.getElementById("rmvBtn");
+rmvBtn.addEventListener("click", () => {
+  localStorage.removeItem("userData");
+  savedDataDiv.innerHTML = `Data are removed`;
+
+  console.log("after removing:", localStorage.getItem("userData"));
+});
+
+const myName = "mahfuz";
+
+sessionStorage.setItem("myName", myName);
+
+const getSession = sessionStorage.getItem("myName");
+console.log(getSession);
+
+
+sessionStorage.setItem('myObj', JSON.stringify(myObject));
+
+const retreiveObj = JSON.parse(sessionStorage.getItem('myObj'));
