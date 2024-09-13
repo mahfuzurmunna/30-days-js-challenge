@@ -1,56 +1,75 @@
-// Task 1: Write a script to save a string value to localStorage and retrieve it. Log the retrieved value
-function setItem(key, value) {
-  localStorage.setItem(key, value);
+// Activity 1: Understanding LocalStorage
+
+const stringValue = "this string will be saved in local storage";
+
+localStorage.setItem("string", stringValue);
+const retrivedValue = localStorage.getItem("string");
+
+const myObj = {
+  name: "munna",
+  age: 20,
+};
+
+//set item for local storage
+function setItem() {
+  localStorage.setItem("myObj", JSON.stringify(myObj));
 }
-function getItem(key) {
-  console.log(localStorage.getItem(key));
+
+// get stored item in the localstorage
+function getItem() {
+  // alert(retrivedValue);
+  const objRetrieve = JSON.parse(localStorage.getItem("myObj"));
+  alert(objRetrieve);
+  console.log(objRetrieve);
 }
 
-// Task 2: Write a script to save an object to localStorage by converting it to a JSON string. Retrieve and parse the object, then log it.
-const myObject = { name: "John Doe", email: "john@example.com" };
-
-localStorage.setItem("myObj", JSON.stringify(myObject));
-
-const retrivedObj = JSON.parse(localStorage.getItem("myObj"));
-
-// Task 3: Create a simple form that saves user input (e.g., name and email) to localStorage when submitted. Retrieve and display the saved data on page load.
+// Activity 2: Using LocalStorage
 const form = document.getElementById("form");
-const savedDataDiv = document.getElementById("savedData");
+const newDiv = document.createElement("div");
+const savedDiv = document.getElementById("savedData");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = document.getElementById("fname").value;
+  const fName = document.getElementById("fname").value;
   const email = document.getElementById("email").value;
-  localStorage.setItem("userData", JSON.stringify({ name, email }));
-  displaySavedData();
-  console.log(localStorage.getItem("userData"));
+  const lName = document.getElementById("lname").value;
+  localStorage.setItem("userData", JSON.stringify({ fName, email, lName }));
+
+  displayData();
 });
 
-const getUserData = localStorage.getItem("userData");
+function displayData() {
+  const retriveData = JSON.parse(localStorage.getItem("userData"));
+  console.log(retriveData);
 
-function displaySavedData() {
-  const savedData = JSON.parse(localStorage.getItem("userData"));
-  if (savedData) {
-    savedDataDiv.innerHTML = `Name: ${savedData.name} <br> Email: ${savedData.email}`;
+  if (retriveData) {
+    newDiv.textContent = `First Name: ${retriveData.fName}, <br> Last Name: ${retriveData.lName}, <br>
+    Email: ${retriveData.email}}`;
+    savedDiv.appendChild(newDiv);
   }
+
+  window.onload = newDiv;
 }
 
-const rmvBtn = document.getElementById("rmvBtn");
-rmvBtn.addEventListener("click", () => {
-  localStorage.removeItem("userData");
-  savedDataDiv.innerHTML = `Data are removed`;
+function acceptKeyValue(key, value) {
+  localStorage.setItem(key, value);
+  sessionStorage.setItem(key, value);
+  console.log(`values are set`);
+}
 
-  console.log("after removing:", localStorage.getItem("userData"));
-});
+function retrieveKey(key) {
+  const local = localStorage.getItem(key);
+  const session = sessionStorage.getItem(key);
+  console.log(local)
+  
+    alert(`Local Storage: ${local}`);
+    setTimeout(() => {
+      alert(`Session Storage: ${session}`);
+    }, 2000);
+  
+}
 
-const myName = "mahfuz";
-
-sessionStorage.setItem("myName", myName);
-
-const getSession = sessionStorage.getItem("myName");
-console.log(getSession);
-
-
-sessionStorage.setItem('myObj', JSON.stringify(myObject));
-
-const retreiveObj = JSON.parse(sessionStorage.getItem('myObj'));
+function clearAll (key) {
+  localStorage.clear(key);
+  sessionStorage.clear(key);
+}

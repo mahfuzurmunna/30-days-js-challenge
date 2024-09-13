@@ -52,8 +52,8 @@
     }
   </style>
   <body>
-    <button onclick="setItem('myKey','Hello, LS')">Set Item</button>
-    <button onclick="getItem('myKey')">Get Item</button>
+    <button onclick="setItem()">Set Item</button>
+    <button onclick="getItem()">Get Item</button>
 
     <div>
       <form action="/action_page.php" id="form">
@@ -94,8 +94,12 @@
       </form>
     </div>
 
-    <div id="savedData">Saved Data</div>
-    <button id="rmvBtn">remove data from ls</button>
+    <div id="savedData">Saved Data:</div>
+    <button onclick="acceptKeyValue('user','Munna')">
+      Set Local & Session
+    </button>
+    <button onclick="retrieveKey('user')">Get Local & Session</button>
+    <button onclick="clearAll('user')">Clear all data</button>
 
     <script src="./local_storage.js"></script>
   </body>
