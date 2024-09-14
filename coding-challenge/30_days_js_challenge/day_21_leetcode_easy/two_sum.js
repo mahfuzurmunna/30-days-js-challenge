@@ -32,5 +32,25 @@ var twoSum = function(nums, target) {
 };
 
 const nums = [3,2,4];
-console.log(twoSum(nums,6))
+// console.log(twoSum(nums,6))
+
+// O(n) solution using hashmap
+
+var twoSumHash=  function (nums,target) {
+    const visited = new Map();
+    let result = [];
+
+    for(let i = 0; i<nums.length;i++) {
+        if(visited.has(target-nums[i])) {
+         result = [nums.indexOf(target-nums[i]),i];
+        } else {
+            visited.set(nums[i],i);
+        }
+    }
+    return result;
+}
+
+const arr = [2,7,11,15];
+
+console.log(twoSumHash(arr,17))
 
