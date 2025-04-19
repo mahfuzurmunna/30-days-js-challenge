@@ -1,31 +1,42 @@
-const obj = {
-  title: "himu",
-  author: "humyaun",
-  year: 2006,
-  nestedObj: {
-    name: "library",
-    books: ["harry", "himu", "badshahi namdar"],
-  },
+const bookDetails = {
+  title: "Rokomari",
+  author: "ishan",
+  year: 2022,
   method: function () {
-    console.log(this.title, this.year);
+    return `The book title is ${this.title} and its author is ${this.author}`;
   },
-  book: function (year) {
+  updateYear: function (year) {
     this.year = year;
-    return year;
+    return this.year;
+  },
+  library: {
+    name: "gronthagar",
+    books: [
+      {
+        name: "great book",
+        author: "gosh",
+      },
+      {
+        name: "the guide",
+        author: "williams",
+      },
+    ],
   },
 };
 
-// console.log(obj.nestedObj.books);
-// obj.method();
 
-for (let keys in obj) {
-  console.log("properties: ", keys);
-  console.log("values: ", obj[keys]);
+
+bookDetails.updateYear(2025);
+// bookDetails.library.books.map((name) => console.log(name.name))
+// console.log(bookDetails.method());
+
+for (const key in bookDetails) {
+  if (Object.prototype.hasOwnProperty.call(bookDetails, key)) {
+    const element = bookDetails[key];
+    console.log(element)
+    
+    
+  }
 }
-
-// console.log(obj.book(2010));
-obj.book(2019);
-console.log(obj.year);
-
-console.log(Object.keys(obj));
-console.log(Object.values(obj));
+console.log(
+  Object.values(bookDetails))

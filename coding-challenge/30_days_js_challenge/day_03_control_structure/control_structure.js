@@ -1,50 +1,63 @@
-function checks(num, sum, gum) {
-  if (num < 0) {
-    console.log("num is negative");
+function checkPosNegZero(num) {
+  if (num > 0) {
+    return "Positive";
+  } else if (num < 0) {
+    return "Negative";
   } else {
-    console.log("num is positive");
-  }
-
-  const personAge = num;
-
-  if (personAge < 18) {
-    console.log("still a kid");
-  } else {
-    console.log("he should start politics");
-  }
-
-  if (num > sum) {
-    if (num > gum) {
-      console.log("num is bigger");
-    }
-  } else if (sum > gum) {
-    console.log("sum is bigger");
-  } else {
-    console.log("gum is bigger");
+    return "Zero";
   }
 }
 
-function ternary(num) {
-  num % 2 === 0 ? console.log("num is even") : console.log("num is odd");
-}
-let minYear = 1000;
-let maxYear = 5000;
-let randomYear = Math.floor(Math.random() * (minYear + maxYear) + minYear);
-const year = 2000;
-
-function leapYear(year) {
-  if (year % 4 === 0) {
-    if (year % 100 === 0) {
-      if (year % 400 === 0) {
-        console.log("its leap year");
-      } else {
-        console.log("not a leap year");
-      }
-    }
+function eligibilityOfVoting(name, age) {
+  if (age >= 18) {
+    return `${name} is eligible to vote this year`;
   } else {
-    console.log("not a leap year");
+    return `${name} is still too yound`;
   }
 }
 
-leapYear(year);
-console.log(randomYear);
+function largestOfThree(num1, num2, num3) {
+  if (num1 > num2 && num1 > num3) {
+    return "num1 is the largest";
+  } else if (num2 > num1 && num2 > num3) {
+    return "num2 is the largest";
+  }
+  return "num3 is the largest";
+}
+
+let day;
+
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturay";
+  default:
+    console.log(`Sorry, this is not a day ${day}`);
+}
+
+console.log(day);
+
+console.log(checkPosNegZero(-1));
+
+function oddEven(num) {
+  return num % 2 === 0 ? `${num} is even` : `${num} is odd`;
+}
+
+console.log(oddEven(5));

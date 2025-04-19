@@ -1,28 +1,81 @@
-let sArr = [1, 2, 3, 4, 5];
+const { sum } = require("lodash");
 
-console.log(sArr);
+let oneToFive = [1, 2, 3, 4, 5];
 
-sArr.push(10);
-sArr.pop();
-sArr.shift();
-sArr.unshift(23);
+// console.log(oneToFive[0], oneToFive[oneToFive.length - 1]);
 
-console.log(sArr);
+oneToFive.push(20);
+oneToFive.pop();
 
-const newArr = sArr.map((num) => num * 2);
+oneToFive.shift();
 
-const evenArr = sArr.filter((num) => num % 2 === 0);
+oneToFive.unshift(10);
+// console.log(oneToFive);
 
-const rdcArr = sArr.reduce((acc, num) => acc + num);
+const newArr = oneToFive.map((num, index, array) => {
+  return num * 3;
+});
 
-console.log(rdcArr);
+const evenArr = newArr.filter((num) => num % 2 === 0);
 
-sArr.forEach((num) => console.log(num));
+const sumOfAll = newArr.reduce((acc, num) => {
+  return acc + num;
+}, 0);
 
-let mArr = [
-  [3, 1, 5],
-  [4, 3, 6],
-  [6, 8, 2],
-];
+console.log(sumOfAll);
 
-console.log(mArr[1][0]);
+for (let i = 0; i < newArr.length; i++) {
+  const elemnt = newArr[i];
+
+  console.log("index:", i, elemnt);
+}
+
+newArr.forEach((num, index) => {
+  return num * 5;
+});
+
+console.log(newArr);
+
+function firstTask() {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res("First task is completed");
+    }, 1000);
+  });
+}
+
+function secondTask() {
+  return new Promise((res, rej) => {
+    res("Second task is compelted");
+  });
+}
+
+function thirdTask() {
+  return new Promise((res, rej) => {
+    let success = false;
+    if(success) {
+      res("Third task is complted");
+    } else {
+      rej("third task is incompelte❌")
+    }
+    
+    
+  });
+}
+
+firstTask()
+  .then((result) => {
+    console.log(result);
+    return secondTask();
+  })
+  .then((result) => {
+    console.log(result);
+    return thirdTask();
+  })
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => console.log("Error", error)).finally(()=>
+  setTimeout(()=> {
+    console.log("all tasks are compelted")
+  },2000))

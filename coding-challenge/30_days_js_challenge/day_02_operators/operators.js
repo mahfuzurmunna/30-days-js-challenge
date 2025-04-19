@@ -1,33 +1,49 @@
-function operator(num1, num2) {
-  console.log(num1 + num2);
-  console.log(num1 - num2);
-  console.log(num1 * num2);
-  console.log(num1 / num2);
-  console.log(num1 % num2);
-
-  if (num1 > num2) {
-    console.log("num1 is bigger");
-  } else {
-    console.log("num2 is bigger");
-  }
-
-  if (num1 === num2) {
-    console.log("both number is equal");
-  }
-
-  if ((num1 && num2) || num1) {
-    console.log("both numbers are correct");
-  }
+function twoNumbers(a, b) {
+  return a + b;
 }
 
-operator(20, 10);
+function substractTwoNumbers(a, b) {
+  return a - b;
+}
 
-let oldNum = 20;
+function multiplyTwoNumbers(a, b) {
+  return a * b;
+}
 
-oldNum += 30;
-oldNum -= 25;
-console.log("new number", oldNum);
+function divideTwoNumbers(a, b) {
+  return a / b;
+}
 
-console.log(!oldNum);
+function equity(a, b) {
+  if (a === b) {
+    return "Numbers are equal";
+  } else if (a > b) {
+    return a;
+  } else return b;
+}
 
-oldNum ? console.log("positive") : console.log("negative");
+function compareNumbers(a, b) {
+  if ((a && b) || b > a) {
+    return "b is equal and these are real numbers";
+  } else if (a > b && a < 10) return " Only a is real";
+}
+
+function opposite(a, b = false) {
+  return !a;
+}
+
+console.log("compare numbers result ", opposite(true, 5));
+
+let aNumber = 5;
+
+aNumber += 10;
+
+aNumber -= 4;
+
+console.log(aNumber, equity(3, 3));
+
+function checkPosNeg(num) {
+  return num > 0 ? true : false;
+}
+
+console.log("pos cehck:", checkPosNeg(-20));

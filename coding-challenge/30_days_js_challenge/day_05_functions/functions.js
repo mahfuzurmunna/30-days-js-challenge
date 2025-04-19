@@ -1,62 +1,44 @@
-function oddOrEven(num) {
-  num % 2 === 0 ? console.log(`${num} is even`) : console.log(`${num} is odd`);
+function checkOddEven(num) {
+  return num % 2 === 0 ? "Even" : "Odd";
 }
 
-// function square(num) {
-//   console.log(num * num);
-// }
-
-function concate(str1, str2) {
-  console.log(str1 + str2);
+function squareNumber(num) {
+  return num * num;
 }
 
-const sum = (n1, n2) => n1 + n2;
+function maxOfTwo(num1, num2) {
+  return num1 > num2 ? num1 : num2;
+}
 
-const contain = (word, char) => {
-  if (word.includes(char)) {
-    console.log(true);
-  } else {
-    console.log(false);
+function concatenateStrings(str1, str2) {
+  let res = str1 + str2;
+  return res;
+}
+
+const sumOfTwo = (num1, num2) => {
+  return num1 + num2;
+};
+
+const charExists = (str, char) => {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) return true;
   }
+  return false;
 };
 
-contain("munnna", "m");
+console.log(charExists('munna','e'))
 
-const func = (p1, p2 = 10) => {
-  console.log(p1, p2);
-};
-
-// func("m");
-
-const person = (name, age = 26) => {
-  console.log(`Hello, my name is ${name} & i'm ${age} years old`);
-};
-
-// person("munna");
-
-function higher(func, number) {
-  while (number > 0) {
-    func();
-    number--;
-  }
-}
-function two(f1, f2, value) {
-  const res = f2(value);
-  const result = f1(res);
-  console.log(result);
-}
-function call() {
-  console.log("function is calling");
+function parameterFunction (val1='goku', val2='munna') {
+  return val1,val2;
 }
 
-function double(x) {
-  return x * 2;
-}
+function person (name='munna',age=20) {
+  return `My name is ${name}, my age is ${age}, nice to meet you`
+} 
 
-function square(x) {
-  return x * x;
-}
 
-// higher(call, 10);
 
-two(double, square, 5);
+console.log(person())
+
+// console.log(sumOfTwo(30, 40));
+// console.log(concatenateStrings("mahfuzr", "munna"));
