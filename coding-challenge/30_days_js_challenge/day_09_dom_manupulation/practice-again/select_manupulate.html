@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select & Manupulate</title>
+  </head>
+  <body
+    style="
+      color: white;
+      background-color: black;
+      font-family: sans-serif;
+      text-align: center;
+    "
+  >
+    <h1 id="hello">Hello World!</h1>
+    <p class="para">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, veniam.
+    </p>
+
+    <ul id="list">
+      <li>1. Javascript</li>
+      <li>2. Problem Solving</li>
+      <li>3. React JS</li>
+    </ul>
+    <img src="../istockphoto-1217649450-612x612.jpg" alt="" />
+
+    <button>Change text</button>
+  </body>
+
+  <script>
+    const tittle = document.getElementById("hello");
+
+    tittle.textContent = "Hello Universe!";
+
+    tittle.style.color = "red";
+
+    const newDiv = document.createElement("div");
+
+    newDiv.innerHTML = `<h2>This is a new div</h2>`;
+
+    document.body.appendChild(newDiv);
+
+    const ulList = document.querySelector("#list");
+
+    const newLi = document.createElement("li");
+    newLi.innerText = "English";
+    ulList.appendChild(newLi);
+
+    const ulChild = ulList.childNodes;
+    document
+      .querySelector("img")
+      .setAttribute(
+        "src",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_images/basic-image.png"
+      );
+
+    document.querySelector("img").style.width = "300px";
+
+    ulList.removeChild(ulList.children[2]);
+    const btn = document.querySelector("button");
+
+    const p = document.querySelector("p");
+
+    btn.addEventListener("click", () => {
+      p.textContent = "This paragraph text has been changed";
+      p.style.border = "1px solid blue"
+    });
+
+    p.addEventListener('mouseover', () => {
+        p.style.border = "2px solid green"
+    })
+
+    console.log(ulChild);
+  </script>
+</html>
